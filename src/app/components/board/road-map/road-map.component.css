@@ -1,0 +1,39 @@
+.navigator{
+    background-color: gray;
+    color: white;
+    text-align: center;
+}
+
+/* Set additional styling options for the columns */
+.column {
+float: left;
+width: 24%;
+margin-right: 1%;
+}
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+h2 {
+    border-style: outset;
+    background-color: wheat;
+    text-align: center;
+}
+
+.pending {
+    background-color:#ffda95;
+}
+
+.inprogress{
+    background-color:#96D1CD;
+}
+
+.onhold {
+    background-color:#e1748c;
+}
+
+.done {
+    background-color:#e1b274;
+}
