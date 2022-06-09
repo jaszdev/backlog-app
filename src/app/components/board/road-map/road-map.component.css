@@ -37,3 +37,11 @@ h2 {
 .done {
     background-color:#e1b274;
 }
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+}
