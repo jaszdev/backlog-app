@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { User } from 'src/app/models/user';
 import { ItemService } from 'src/app/services/item/item.service';
+import { ActivatedRoute  } from '@angular/router';
 
 @Component({
   selector: 'app-road-map',
@@ -13,13 +14,15 @@ export class RoadMapComponent implements OnInit {
 
   @Input() users: User[] = [];
   items: Item[] = [];
+  user: string;
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private activeRoute: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
     this.getItems();
+    this.user = this.activeRoute.snapshot.params['username'];
   }
 
   async getItems() {
