@@ -1,37 +1,26 @@
-<nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-text">
-        <h1>Board</h1>
-      </span>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-  </nav>
-
-
-<div class="container">
-    <div class="row">
-        <div class="column pending">
-            <h2>Pending</h2>
-            <app-item></app-item>
-            <app-item></app-item>
-            <app-item></app-item>
-            <app-item></app-item>
-            <app-item></app-item>
-        </div>
-        <div class="column inprogress">
-            <h2>In progress</h2>
-            <app-item></app-item>
-        </div>
-        <div class="column onhold">
-            <h2>On hold</h2>
-            <app-item></app-item>
-        </div>
-        <div class="column done">
-            <h2>Done</h2>
-            <app-item></app-item>
-            <app-item></app-item>
-            <app-item></app-item>
-        </div>
+<div>
+    <div>
+        <!-- Section Heading-->
+        <app-navigation-bar></app-navigation-bar>
     </div>
 </div>
+<app-item-form [users]="users"></app-item-form>
+<div class="row">
+    <div class="column pending">
+        <h2>Pending</h2>
+        <app-item *ngFor="let item of getItemsByStatus('New')" [users]="users"  [item]="item"></app-item>
+    </div>
+    <div class="column inprogress">
+        <h2>In progress</h2>
+        <app-item *ngFor="let item of getItemsByStatus('Commited')" [users]="users"  [item]="item"></app-item>
+    </div>
+    <div class="column onhold">
+        <h2>On hold</h2>
+        <app-item *ngFor="let item of getItemsByStatus('On Hold')" [users]="users"  [item]="item"></app-item>
+    </div>
+    <div class="column done">
+        <h2>Done</h2>
+        <app-item *ngFor="let item of getItemsByStatus('Done')" [users]="users"  [item]="item"></app-item>
+    </div>
+</div>
+

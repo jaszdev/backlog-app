@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemComponent } from './item/item.component';
-
-
+import { UtilsModule } from '../utils/utils.module';
+import { ItemFormComponent } from './item-form/item-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ItemComponent
+    ItemComponent,
+    ItemFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UtilsModule,
+    FormsModule
   ],
   exports:[
-    ItemComponent
+    ItemComponent,
+    ItemFormComponent
   ]
 })
 export class ItemModule { }
