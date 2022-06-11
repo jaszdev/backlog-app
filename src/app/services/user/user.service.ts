@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   url: string = `${environment.dbURL}/user.json`;
-
+  user: User | null = null;
+  
   constructor(private http:HttpClient) {
   }
 
@@ -18,18 +19,22 @@ export class UserService {
     .subscribe(response => console.log(response));
   }
 
-  async login(username: string, password: string): Promise<boolean> {  
-    var validLogin = true;
+  async login(username: string, password: string): Promise<User | null> {  
+    this.user = null;
+    var users: User[] = await this.getUsers();
+    var filteredList: User[] = users.filter(user => user.username === username);
+    if (filteredList.length == 1 && filteredList[0].password === password) {
+      this.user = filteredList[0];
+    }
+    return this.user;
+  }
+
+  async getUsers(): Promise<User[]> {
     var response = await this.http.get<any[]>(this.url).toPromise();
     var users: User[] = this.responseToList(response);
-    var filteredList = users.filter(user => user.username === username);
-    if (filteredList.length != 1) validLogin = false;
-    else {
-      var user = filteredList[0];
-      if (user.password !== password) validLogin = false;
-    }
-    return validLogin;
+    return users;
   }
+
 
   responseToList(response: any): [] {
     var list: any = Object.entries(response).map(item => { 
@@ -37,5 +42,9 @@ export class UserService {
     });
     return list;
   } 
+
+  usersNames(users: User[]) {
+    return users.map(user => user.username);
+  }
 
 }
