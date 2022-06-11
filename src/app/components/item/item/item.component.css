@@ -2,4 +2,6 @@
     border-style: groove;
     display: block;
     padding: 15px;
+    color: #FFF;
+    border-radius:10px;
 }
