@@ -20,9 +20,13 @@ export class LoginComponent implements OnInit {
   }  
 
   login() {    
-    this.userService.login(this.username, this.password).then(
-      data => {        
-        this.router.navigateByUrl("/home");
+    this.userService.login(this.username, this.password).then( 
+      response => {
+        if (response){
+          this.router.navigateByUrl("/home/" + this.username);
+        }else{
+          this.router.navigateByUrl("/login");
+        }
       },
       error => {
         console.log(error);

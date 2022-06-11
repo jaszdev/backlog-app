@@ -4,7 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RoadMapComponent } from './components/board/road-map/road-map.component';
 
 const routes: Routes = [
-  { path: 'home', component: RoadMapComponent },
+  { path: 'home/:username', component: RoadMapComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
