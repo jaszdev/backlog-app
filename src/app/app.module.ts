@@ -9,10 +9,12 @@ import { BoardModule } from './components/board/board.module';
 import { ItemModule } from './components/item/item.module';
 import { UserModule } from './components/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, 
+    LoginComponent
   ],
   imports: [
     BrowserModule,
