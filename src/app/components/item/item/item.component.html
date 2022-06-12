@@ -1,10 +1,25 @@
 <div class="item" *ngIf="item">
-        <div class="timeline-text ">
-            <h3>{{ item.name }}</h3>
-            <p>{{ item.id }}</p>
-            <p>{{ item.type }}</p>
-            <p>{{ item.status }}</p>
-            <!-- <p>Item description</p> -->
-            <app-select [items]="usersNames" [selected]="getItemUsername()"></app-select>
+    <div *ngIf="item" [ngClass]="itemStyle">
+        <div class="item-container">
+            <div class="timeline-text">
+                <div class="item-tittle">
+                    <div class="item-id">{{ item.id }}</div>
+                    <div class="item-name">{{ item.name }}</div>
+                </div>
+                <div class="item-info">
+                    <p>
+                        <span>Item type:</span> {{ item.type }}
+                    </p>
+                </div>
+                <div class="item-info">
+                    <span>Status:</span> {{ item.status }}
+                </div>
+                <br>
+                <div class="item-user">
+                    <i class="fa fa-user"></i><app-select class="userSelect" [items]="usersNames" [selected]="getItemUsername()"></app-select>
+                </div>
+            </div>
         </div>
+    </div>
 </div>
+    

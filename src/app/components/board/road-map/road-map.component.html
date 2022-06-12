@@ -6,19 +6,19 @@
 </div>
 <app-item-form [users]="users" [_onSubmit]="_getItems"></app-item-form>
 <div class="row">
-    <div class="column pending">
+    <div class="column">
         <h2>Pending</h2>
         <app-item *ngFor="let item of getItemsByStatus('New')" [users]="users"  [item]="item"></app-item>
     </div>
-    <div class="column inprogress">
+    <div class="column">
         <h2>In progress</h2>
         <app-item *ngFor="let item of getItemsByStatus('Commited')" [users]="users"  [item]="item"></app-item>
     </div>
-    <div class="column onhold">
+    <div class="column">
         <h2>On hold</h2>
         <app-item *ngFor="let item of getItemsByStatus('On Hold')" [users]="users"  [item]="item"></app-item>
     </div>
-    <div class="column done">
+    <div class="column">
         <h2>Done</h2>
         <app-item *ngFor="let item of getItemsByStatus('Done')" [users]="users"  [item]="item"></app-item>
     </div>
