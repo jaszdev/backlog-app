@@ -13,9 +13,12 @@ export class ItemComponent implements OnInit {
   @Input() users: User[] = [];
   @Input() item: Item | null = null;
 
+  itemStyle:string;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.setItemStyle();
   }
 
   get usersNames() {
@@ -32,4 +35,24 @@ export class ItemComponent implements OnInit {
     return '';
   }
 
+  setItemStyle(){
+    this.itemStyle = "item";
+    switch (this.item?.status) {
+      case "On Hold":
+          this.itemStyle += " onhold";
+          break;
+      case "New":
+          this.itemStyle += " pending";
+          break;
+      case "Commited":
+          this.itemStyle += " inprogress";
+          break;
+      case "Done":
+          this.itemStyle += " done";
+          break;
+      default:
+          this.itemStyle ="item";
+          break;
+    }
+  }
 }

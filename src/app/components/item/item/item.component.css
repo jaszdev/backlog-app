@@ -2,6 +2,58 @@
     border-style: groove;
     display: block;
     padding: 15px;
-    color: #FFF;
     border-radius:10px;
+}
+.item-tittle{
+    display: table-row;
+    height: 35px;
+}
+.item-id{
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.item-name{
+    float: left;
+    font-size: 18px;
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+.item-container{
+    background-color: white;
+    padding: inherit;
+    border: solid 1px gray;
+}
+.item-user{
+    display: table-row;
+    margin-top: 5px;
+}
+.item-user .fa-user{
+    float: left;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+.item-user .userSelect{
+    float: left;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.item-info span{
+    font-weight: bold;
+}
+.pending {
+    background-color:#ffda95;
+}
+
+.inprogress{
+    background-color:#96D1CD;
+}
+
+.onhold {
+    background-color:#e1748c;
+}
+
+.done {
+    background-color:#e1b274;
 }
