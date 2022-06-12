@@ -14,9 +14,13 @@ export class ItemService {
   constructor(private http:HttpClient) {
   }
 
-  additem(item: Item) {
+  additem(item: Item, callback: any) {
     this.http.post(this.url, item)
-    .subscribe(response => console.log(response));
+    .subscribe(response => { 
+      if (callback) {
+        callback(); 
+      }
+    });
   }
 
   async getItems(): Promise<Item[]> {

@@ -12,6 +12,7 @@ import { getItemId } from 'src/environments/environment';
 })
 export class ItemFormComponent implements OnInit {
 
+  @Input() _onSubmit: any;
   @Input() users: User[] = [];
 
   model: Item = { id: 0, type: "PBI", name: "", status: "New", userId: -1 };
@@ -23,7 +24,7 @@ export class ItemFormComponent implements OnInit {
 
   onSubmit() {
     this.model.id = getItemId();
-    this.itemService.additem(this.model);
+    this.itemService.additem(this.model, this._onSubmit);
   }
 
 }

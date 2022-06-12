@@ -32,6 +32,10 @@ export class RoadMapComponent implements OnInit {
     this.users = await this.userService.getUsers();
   }
 
+  _getItems = () => {
+    this.getItems();
+  }
+
   async getItems() {
     this.items = await this.itemService.getItems();
   }

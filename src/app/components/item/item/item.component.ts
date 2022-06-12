@@ -26,7 +26,6 @@ export class ItemComponent implements OnInit {
     if (this.item != null && this.users.length > 0) {
       var filteredList = this.users.filter(user => user.id.toString() === this.item?.userId.toString());
       if (filteredList.length > 0) {
-        console.log(filteredList[0].username);
         return filteredList[0].username;
       }
     }
