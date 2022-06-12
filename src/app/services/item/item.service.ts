@@ -21,7 +21,6 @@ export class ItemService {
 
   async getItems(): Promise<Item[]> {
     var response = await this.http.get<any[]>(this.url).toPromise();
-    console.log(response);
     var items: Item[] = this.responseToList(response);
     return items;
   }
@@ -30,7 +29,6 @@ export class ItemService {
     var list: any = Object.entries(response).map(item => { 
       return item[1]; 
     });
-    console.log(list);
     return list;
   } 
 }

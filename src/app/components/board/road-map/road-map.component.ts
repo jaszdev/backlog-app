@@ -3,12 +3,14 @@ import { Item } from 'src/app/models/item';
 import { User } from 'src/app/models/user';
 import { ItemService } from 'src/app/services/item/item.service';
 import { ActivatedRoute  } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
+
 
 @Component({
   selector: 'app-road-map',
   templateUrl: './road-map.component.html',
   styleUrls: ['./road-map.component.css'],
-  providers: [ItemService]
+  providers: [UserService, ItemService]
 })
 export class RoadMapComponent implements OnInit {
 
@@ -16,18 +18,22 @@ export class RoadMapComponent implements OnInit {
   items: Item[] = [];
   user: string;
 
-  constructor(private itemService: ItemService, private activeRoute: ActivatedRoute) {
+  constructor(private userService: UserService, private itemService: ItemService, private activeRoute: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
+    this.getUsers();
     this.getItems();
     this.user = this.activeRoute.snapshot.params['username'];
   }
 
+  async getUsers() {
+    this.users = await this.userService.getUsers();
+  }
+
   async getItems() {
     this.items = await this.itemService.getItems();
-    console.log(this.items);
   }
 
   getItemsByStatus(status: string): Item[] {

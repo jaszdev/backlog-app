@@ -22,11 +22,15 @@ export class ItemComponent implements OnInit {
     return this.userService.usersNames(this.users);
   }
 
-  getItemUser(): User {
-    if (this.item != null) {
-      return this.users.filter(user => user.id === this.item?.id)[0];
+  getItemUsername(): string {
+    if (this.item != null && this.users.length > 0) {
+      var filteredList = this.users.filter(user => user.id.toString() === this.item?.userId.toString());
+      if (filteredList.length > 0) {
+        console.log(filteredList[0].username);
+        return filteredList[0].username;
+      }
     }
-    return this.users[0];
+    return '';
   }
 
 }

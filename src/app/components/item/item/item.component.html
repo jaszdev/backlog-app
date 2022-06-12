@@ -5,6 +5,6 @@
             <p>{{ item.type }}</p>
             <p>{{ item.status }}</p>
             <!-- <p>Item description</p> -->
-            <app-select [items]="usersNames"></app-select>
+            <app-select [items]="usersNames" [selected]="getItemUsername()"></app-select>
         </div>
 </div>
